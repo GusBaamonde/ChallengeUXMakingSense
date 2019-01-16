@@ -1,0 +1,26 @@
+/*
+Breakpoint
+*/
+$breakpoints: (
+  small: 'max-width: 480px',
+  medium: 'max-width: 768px',
+  large: 'max-width: 1024px',
+  xlarge: 'max-width: 1440px'
+);
+@mixin media-query($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media screen and(map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  } @else {
+    @error "Breakpoint does not exist";
+  }
+}
+/*
+Variables
+*/
+$first-color: #5da552;
+$second-color: #333333;
+$font-light: 'OpenSans-Light', Arial;
+$font-regular: 'OpenSans-Regular', Arial;
+$font-semibold: 'OpenSans-SemiBold', Arial;
